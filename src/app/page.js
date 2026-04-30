@@ -6,7 +6,7 @@ import TopBreeds from "@/Components/TopBreeds";
 
 
 export default async function Home() {
-  const res = await fetch("https://json-server-y16h.onrender.com/animals");
+  const res = await fetch("https://qurbanihat-nextjs.vercel.app/data.json");
   const data = await res.json();
   const animal = data.slice(0, 4);
   return (

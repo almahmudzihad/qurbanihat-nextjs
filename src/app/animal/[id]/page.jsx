@@ -3,7 +3,7 @@ import BookinForm from "@/Components/BookinForm";
 
 
 export default async function AnimalDetails({ params }) {
-  const res = await fetch("https://json-server-y16h.onrender.com/animals");
+  const res = await fetch("https://qurbanihat-nextjs.vercel.app/data.json");
   const animals = await res.json();
   
   const { id } = await params;
