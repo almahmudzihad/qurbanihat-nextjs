@@ -2,7 +2,7 @@ import AnimalCard from '@/Components/AnimalCard';
 import React from 'react'
 
 const AllAnimals = async () => {
-    const res = await fetch("http://localhost:3000/data.json");
+    const res = await fetch("/data.json");
   const animal = await res.json();
   
   return (

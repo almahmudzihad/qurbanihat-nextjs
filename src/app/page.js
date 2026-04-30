@@ -4,8 +4,9 @@ import QurbaniTips from "@/Components/QurbaniTips";
 import TopBreeds from "@/Components/TopBreeds";
 
 
+
 export default async function Home() {
-  const res = await fetch("http://localhost:3000/data.json");
+  const res = await fetch("/data.json");
   const data = await res.json();
   const animal = data.slice(0, 4);
   return (

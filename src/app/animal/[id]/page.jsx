@@ -3,7 +3,7 @@ import BookinForm from "@/Components/BookinForm";
 
 
 export default async function AnimalDetails({ params }) {
-  const res = await fetch("http://localhost:3000/data.json");
+  const res = await fetch("/data.json");
   const animals = await res.json();
   
   const { id } = await params;
