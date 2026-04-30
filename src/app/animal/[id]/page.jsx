@@ -3,7 +3,7 @@ import BookinForm from "@/Components/BookinForm";
 
 
 export default async function AnimalDetails({ params }) {
-  const res = await fetch("/data.json");
+  const res = await fetch("https://json-server-y16h.onrender.com/animals");
   const animals = await res.json();
   
   const { id } = await params;

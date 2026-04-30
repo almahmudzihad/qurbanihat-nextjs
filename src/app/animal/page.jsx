@@ -2,7 +2,7 @@ import AnimalCard from '@/Components/AnimalCard';
 import React from 'react'
 
 const AllAnimals = async () => {
-    const res = await fetch("/data.json");
+    const res = await fetch("https://json-server-y16h.onrender.com/animals");
   const animal = await res.json();
   
   return (
