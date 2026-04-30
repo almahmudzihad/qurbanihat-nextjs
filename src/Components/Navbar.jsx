@@ -23,6 +23,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
           <Link href="/" className="hover:text-green-600">Home</Link>
           <Link href="/animal" className="hover:text-green-600">All Animals</Link>
+          <Link href="/profile" className="hover:text-green-600">My Profile</Link>
         </div>
 
         {/* Right Side */}
@@ -70,6 +71,7 @@ export default function Navbar() {
       <div className="md:hidden flex justify-center gap-6 pb-3 text-sm">
         <Link href="/">Home</Link>
         <Link href="/animal">Animals</Link>
+        <Link href="/profile" className="hover:text-green-600">My Profile</Link>
       </div>
     </nav>
   );
