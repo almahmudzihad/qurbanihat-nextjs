@@ -1,5 +1,7 @@
 import AnimalCard from "@/Components/AnimalCard";
 import Hero from "@/Components/Hero";
+import QurbaniTips from "@/Components/QurbaniTips";
+import TopBreeds from "@/Components/TopBreeds";
 
 
 export default async function Home() {
@@ -19,6 +21,8 @@ export default async function Home() {
         </div>
         
       </div>
+      <QurbaniTips />
+      <TopBreeds />
       
     </div>
   );
