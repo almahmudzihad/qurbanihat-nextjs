@@ -22,7 +22,7 @@ export default function Navbar() {
         {/* Links */}
         <div className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
           <Link href="/" className="hover:text-green-600">Home</Link>
-          <Link href="/animals" className="hover:text-green-600">All Animals</Link>
+          <Link href="/animal" className="hover:text-green-600">All Animals</Link>
         </div>
 
         {/* Right Side */}
@@ -69,7 +69,7 @@ export default function Navbar() {
       {/* Mobile Menu (simple) */}
       <div className="md:hidden flex justify-center gap-6 pb-3 text-sm">
         <Link href="/">Home</Link>
-        <Link href="/animals">Animals</Link>
+        <Link href="/animal">Animals</Link>
       </div>
     </nav>
   );
