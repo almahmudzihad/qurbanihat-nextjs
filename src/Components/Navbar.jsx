@@ -51,6 +51,7 @@ export default function Navbar() {
                     alt="avatar"
                     fill
                     className="rounded-full border object-cover"
+                    referrerPolicy="no-referrer"
                   />
                 </div>
               </Link>
