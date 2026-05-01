@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { authClient } from "@/lib/auth-client";
+import { Spinner } from "@heroui/react";
 
 export default function Navbar() {
   const { data: session, isPending } = authClient.useSession();
@@ -37,12 +38,7 @@ export default function Navbar() {
 
           {/* Loading state */}
           {isPending && (
-            <button type="button" class="bg-indigo-500 ..." disabled>
-              <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
-              <!-- ... -->
-              </svg>
-              Processing…
-            </button>
+            <Spinner color="current" size="sm" />
           )}
 
           {/* Logged in */}
