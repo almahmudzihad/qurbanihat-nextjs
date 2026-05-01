@@ -12,7 +12,7 @@ export default function QurbaniTips() {
       <div className="max-w-7xl mx-auto px-4">
 
         <h2 className="text-2xl font-bold mb-6 text-center">
-          🕌 Qurbani Tips
+           Qurbani Tips
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
