@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
-  const [user, setUser] = useState(true); // demo state (auth থাকলে replace করবে)
+  const { data: session, isPending } = authClient.useSession();
 
-  const handleLogout = () => {
-    setUser(false);
+  const user = session?.user;
+
+  const handleLogout = async () => {
+    await authClient.signOut();
   };
 
   return (
@@ -15,9 +18,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
 
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-green-600">
-          QurbaniHat
-        </Link>
+        <Link
+  href="/"
+  className="text-3xl font-extrabold tracking-wide text-green-600 hover:text-green-700 transition"
+>
+  Qurbani<span className="text-black">Hat</span>
+</Link>
 
         {/* Links */}
         <div className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
@@ -29,15 +35,23 @@ export default function Navbar() {
         {/* Right Side */}
         <div className="flex items-center gap-3">
 
-          {/* If logged in */}
+          {/* Loading state */}
+          {isPending && (
+            <p className="text-sm text-gray-500">Loading...</p>
+          )}
+
+          {/* Logged in */}
           {user ? (
             <>
               <Link href="/my-profile">
-                <img
-                  src="https://i.pravatar.cc/40"
-                  className="w-10 h-10 rounded-full border"
-                  alt="avatar"
-                />
+                <div className="relative w-10 h-10">
+                  <Image
+                    src={user.image || "https://i.pravatar.cc/40"}
+                    alt="avatar"
+                    fill
+                    className="rounded-full border object-cover"
+                  />
+                </div>
               </Link>
 
               <button
@@ -64,14 +78,15 @@ export default function Navbar() {
               </Link>
             </>
           )}
+
         </div>
       </div>
 
-      {/* Mobile Menu (simple) */}
+      {/* Mobile Menu */}
       <div className="md:hidden flex justify-center gap-6 pb-3 text-sm">
         <Link href="/">Home</Link>
         <Link href="/animal">Animals</Link>
-        <Link href="/profile" className="hover:text-green-600">My Profile</Link>
+        <Link href="/profile">Profile</Link>
       </div>
     </nav>
   );
