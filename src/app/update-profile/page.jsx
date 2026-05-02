@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -12,8 +12,16 @@ export default function UpdateProfilePage() {
   const user = session?.user;
 
   const [loading, setLoading] = useState(false);
-  const [name, setName] = useState(user?.name || "");
-  const [image, setImage] = useState(user?.image || "");
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("");
+
+  // fix async user load
+  useEffect(() => {
+    if (user) {
+      setName(user.name || "");
+      setImage(user.image || "");
+    }
+  }, [user]);
 
   if (isPending) {
     return (
@@ -39,7 +47,7 @@ export default function UpdateProfilePage() {
       });
 
       toast.success("Profile updated successfully!");
-      router.push("/");
+      router.push("/my-profile");
     } catch (error) {
       toast.error("Update failed");
     }
@@ -56,35 +64,47 @@ export default function UpdateProfilePage() {
           Update Profile
         </h2>
 
+        {/* 🖼️ Image Preview (TOP) */}
+        <div className="flex flex-col items-center mb-6">
+          <p className="text-sm text-gray-500 mb-2">Profile Image</p>
+
+          <img
+            src={image || "https://i.pravatar.cc/150"}
+            alt="preview"
+            className="w-24 h-24 rounded-full object-cover border-4 border-green-500 shadow"
+          />
+        </div>
+
         <form onSubmit={handleUpdate} className="space-y-4">
 
           {/* Name */}
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Your Name"
-            className="w-full border p-2 rounded"
-            required
-          />
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Name
+            </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your Name"
+              className="w-full border p-2 rounded"
+              required
+            />
+          </div>
 
           {/* Image URL */}
-          <input
-            type="text"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            placeholder="Image URL"
-            className="w-full border p-2 rounded"
-          />
-
-          {/* Preview */}
-          {image && (
-            <img
-              src={image}
-              alt="preview"
-              className="w-20 h-20 rounded-full mx-auto object-cover border"
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Image URL
+            </label>
+            <input
+              type="text"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              placeholder="Paste image link"
+              className="w-full border p-2 rounded"
             />
-          )}
+          </div>
 
           {/* Button */}
           <button
