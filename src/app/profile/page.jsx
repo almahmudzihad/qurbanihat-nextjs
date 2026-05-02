@@ -38,6 +38,7 @@ export default function MyProfilePage() {
               src={user.image || "https://i.pravatar.cc/150"}
               alt="profile"
               fill
+              unoptimized
               className="rounded-full object-cover border-4 border-green-500"
             />
           </div>

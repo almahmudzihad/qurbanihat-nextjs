@@ -50,6 +50,7 @@ export default function Navbar() {
                     src={user?.image || "https://i.pravatar.cc/40"}
                     alt="avatar"
                     fill
+                    unoptimized
                     className="rounded-full border object-cover"
                     referrerPolicy="no-referrer"
                   />
