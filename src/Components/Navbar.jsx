@@ -20,11 +20,11 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link
-  href="/"
-  className="text-3xl font-extrabold tracking-wide text-green-600 hover:text-green-700 transition"
->
-  Qurbani<span className="text-black">Hat</span>
-</Link>
+            href="/"
+            className="text-3xl font-extrabold tracking-wide text-green-600 hover:text-green-700 transition"
+          >
+            Qurbani<span className="text-black">Hat</span>
+          </Link>
 
         {/* Links */}
         <div className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
@@ -47,7 +47,7 @@ export default function Navbar() {
               <Link href="/my-profile">
                 <div className="relative w-10 h-10">
                   <Image
-                    src={user.image || "https://i.pravatar.cc/40"}
+                    src={user?.image || "https://i.pravatar.cc/40"}
                     alt="avatar"
                     fill
                     className="rounded-full border object-cover"

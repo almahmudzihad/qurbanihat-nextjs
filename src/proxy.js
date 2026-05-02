@@ -9,7 +9,7 @@ export async function proxy(request) {
     headers: await headers() // you need to pass the headers object.
 })
   if(!session) {
-    return NextResponse.redirect(new URL('/register', request.url))
+    return NextResponse.redirect(new URL('/login', request.url))
   }
   //  return NextResponse.redirect(new URL('/home', request.url))
 }
