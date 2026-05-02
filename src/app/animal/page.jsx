@@ -2,17 +2,25 @@
 
 import { useEffect, useState } from "react";
 import AnimalCard from "@/Components/AnimalCard";
-import { Spinner } from "@heroui/react";
+import Lottie from "lottie-react";
 
 export default function AllAnimals() {
   const [animals, setAnimals] = useState([]);
   const [sortedAnimals, setSortedAnimals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortType, setSortType] = useState("");
+  const [animationData, setAnimationData] = useState(null);
 
-  // fetch data
+  // fetch lottie animation (no download)
   useEffect(() => {
-    fetch("https://qurbanihat-nextjs.vercel.app/data.json")
+    fetch("https://assets2.lottiefiles.com/packages/lf20_usmfx6bp.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data));
+  }, []);
+
+  // fetch animals (FIXED)
+  useEffect(() => {
+    fetch("/data.json")
       .then((res) => res.json())
       .then((data) => {
         setAnimals(data);
@@ -21,7 +29,7 @@ export default function AllAnimals() {
       });
   }, []);
 
-  // sorting function
+  // sorting
   const handleSort = (type) => {
     setSortType(type);
 
@@ -36,11 +44,13 @@ export default function AllAnimals() {
     setSortedAnimals(sorted);
   };
 
-  // loader
-  if (loading) {
+  // loader (UPDATED 🔥)
+  if (loading || !animationData) {
     return (
-      <div className="min-h-screen flex items-center justify-center gap-3">
-        <Spinner size="lg" color="success" />
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+        <div className="w-40">
+          {animationData && <Lottie animationData={animationData} loop />}
+        </div>
         <p className="text-gray-500">Loading animals...</p>
       </div>
     );
@@ -51,10 +61,7 @@ export default function AllAnimals() {
 
       {/* Header + Sort */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
-
-        <h2 className="text-2xl font-bold">
-          All Animals
-        </h2>
+        <h2 className="text-2xl font-bold">All Animals</h2>
 
         <select
           value={sortType}
@@ -65,16 +72,14 @@ export default function AllAnimals() {
           <option value="low">Low → High</option>
           <option value="high">High → Low</option>
         </select>
-
       </div>
 
-      {/* Animals Grid */}
+      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {sortedAnimals.map((animal) => (
           <AnimalCard key={animal.id} animal={animal} />
         ))}
       </div>
-
     </div>
   );
 }

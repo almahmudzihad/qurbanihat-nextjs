@@ -2,63 +2,72 @@
 
 ## 🌐 Live Site
 
-👉 https://qurbanihat-nextjs.vercel.app/
-
+https://qurbanihat-nextjs.vercel.app
 
 
 ---
 
-## 📖 Project Overview
+## 📌 Project Purpose
 
-QurbaniHat is a modern livestock marketplace where users can explore animals for Qurbani such as cows and goats. Users can view details and place a booking after authentication.
-
-This project is built using Next.js (App Router) with a focus on clean UI, responsiveness, and authentication.
+QurbaniHat is a modern livestock marketplace where users can explore animals such as cows and goats for Qurbani. Users can view detailed information and place a booking after authentication. The goal is to provide a simple, responsive, and user-friendly platform.
 
 ---
 
-## 🚀 Features
+## ✨ Key Features
 
-* 🔐 User Authentication (Email/Password + Google Login)
+* 🔐 User Authentication (Email/Password & Google Login)
 * 🐄 Browse All Animals
 * 📄 Animal Details Page
-* 🛒 Booking System (with success animation)
+* 🛒 Booking System with Success Animation
 * 👤 My Profile Page
 * ✏️ Update Profile (Name & Image)
-* 🔍 Sorting by Price
+* 🔍 Sort Animals by Price
+* 🎬 Lottie Animation Loader
 * 📱 Fully Responsive Design
 * ⚡ Loading States & Toast Notifications
 * ❌ Custom 404 Not Found Page
 
-
 ---
 
-## 🧩 Pages & Routes
+## 🧩 Routes
 
 ### 🔓 Public Routes
 
-* `/` → Home Page
+* `/` → Home
 * `/animal` → All Animals
-* `/login` → Login Page
-* `/register` → Register Page
+* `/login` → Login
+* `/register` → Register
 
 ### 🔒 Private Routes
 
-* `/animal/[id]` → Animal Details Page
+* `/animal/[id]` → Animal Details
 * `/my-profile` → User Profile
-* `/update-profile` → Update User Info
+* `/update-profile` → Update Profile
 
 ---
 
-## 🏗️ Tech Stack
+## 📦 NPM Packages Used
 
-* ⚛️ Next.js (App Router)
-* 🎨 Tailwind CSS
-* 🔐 Better Auth
-* 🔔 React Toastify
-* 🌐 Vercel (Deployment)
+* `next`
+* `react`
+* `react-dom`
+* `tailwindcss`
+* `better-auth`
+* `lottie-react`
+* `react-toastify`
+* `@heroui/react`
 
 ---
 
+## 🚀 Tech Stack
+
+* Next.js (App Router)
+* Tailwind CSS
+* Better Auth
+* HeroUI
+* Vercel (Deployment)
+
+---
 
 ## ⚙️ Environment Variables
 
@@ -71,15 +80,9 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
 ---
 
-## 📦 Installation & Setup
+## 📁 Setup Instructions
 
 ```bash
-# Clone the repository
-git clone https://github.com/almahmudzihad/qurbanihat.git
-
-# Go to project folder
-cd qurbanihat
-
 # Install dependencies
 npm install
 
@@ -89,20 +92,11 @@ npm run dev
 
 ---
 
-## 💡 Additional Features
+## 🎯 Challenges Implemented
 
-* Smooth UI with modern design
-* Clean component structure
-* Reusable components
-* Responsive grid layout
-
+* 👤 My Profile Page
+* ✏️ Update Profile Feature
+* 🎬 Lottie Animation (Loader)
 
 ---
 
-## 🧠 Lessons Learned
-
-* Next.js App Router structure
-* Authentication with Better Auth
-* Client vs Server Components
-* Handling state and UI updates
-* Building responsive UI with Tailwind
