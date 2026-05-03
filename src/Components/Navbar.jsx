@@ -44,7 +44,7 @@ export default function Navbar() {
           {/* Logged in */}
           {user ? (
             <>
-              <Link href="/my-profile">
+              <Link href="/profile">
                 <div className="relative w-10 h-10">
                   <Image
                     src={user?.image || "https://i.pravatar.cc/40"}

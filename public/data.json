@@ -88,33 +88,33 @@
     "location": "Rajshahi",
     "description": "Healthy goat for Qurbani.",
     "image": "https://i.ibb.co.com/N6KM4LBg/492534882-1122970856525234-607416491141547024-n.jpg",
-    "category": "Small Animal"
+    "category": "Large Animal"
   },
   {
     "id": 8,
     "name": "White Royal Cow",
     "type": "Cow",
     "breed": "Boer",
-    "price": 60000,
-    "weight": 55,
+    "price": 130000,
+    "weight": 275,
     "age": 2,
     "location": "Khulna",
     "description": "Premium goat.",
     "image": "https://i.ibb.co.com/twV5ZcTT/VB8-FNf-Tb-Xj-Hrh-Qq-JZQHUg-K7-RQ2yx-AQB9c-Tgbyro-K.jpg",
-    "category": "Small Animal"
+    "category": "Large Animal"
   },
   {
     "id": 9,
     "name": "Mini Brown Cow",
     "type": "Cow",
     "breed": "Local",
-    "price": 30000,
-    "weight": 35,
-    "age": 1,
+    "price": 120000,
+    "weight": 275,
+    "age": 3,
     "location": "Sylhet",
     "description": "Budget friendly goat.",
     "image": "https://i.ibb.co.com/4RrRNfjk/image.jpg",
-    "category": "Small Animal"
+    "category": "Large Animal"
   },
   {
     "id": 10,
