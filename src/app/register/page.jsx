@@ -27,6 +27,7 @@ export default function RegisterPage() {
         image,
         password,
       });
+      await authClient.signOut();
 
       toast.success("Registration successful!");
       router.push("/login");
